@@ -13,9 +13,16 @@ ext {
             // Kotlin
             kotlin              : '1.2.0',
             anko                : '0.10.4',
+
+            // Etc
+            gson                : '2.8.2',
+            picasso             : '2.5.2',
+
             // Test
             espresso            : '2.2.2',
-            junit               : '4.12'
+            mockito             : '2.13.0',
+            junit               : '4.12',
+            runner              : '1.0.1'
 
 
 
