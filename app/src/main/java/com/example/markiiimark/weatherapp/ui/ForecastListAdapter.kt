@@ -1,4 +1,4 @@
-package com.example.markiiimark.weatherapp
+package com.example.markiiimark.weatherapp.ui
 
 import android.support.v7.widget.RecyclerView
 import android.view.ViewGroup

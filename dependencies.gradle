@@ -12,6 +12,7 @@ ext {
 
             // Kotlin
             kotlin              : '1.2.0',
+            anko                : '0.10.4',
             // Test
             espresso            : '2.2.2',
             junit               : '4.12'
