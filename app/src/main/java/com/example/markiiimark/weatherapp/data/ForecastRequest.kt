@@ -1,6 +1,5 @@
 package com.example.markiiimark.weatherapp.data
 
-import android.util.Log
 import com.google.gson.Gson
 import java.net.URL
 
