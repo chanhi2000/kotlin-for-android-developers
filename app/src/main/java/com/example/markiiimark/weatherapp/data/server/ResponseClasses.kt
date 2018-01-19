@@ -1,10 +1,10 @@
-package com.example.markiiimark.weatherapp.data
+package com.example.markiiimark.weatherapp.data.server
 
-data class ForecastResult(val city:City,
+data class ForecastResult(val city: City,
                           val list: List<Forecast>)
 data class City(val id: Long,
                 val name: String,
-                val coord:Coordinates,
+                val coord: Coordinates,
                 val country:String,
                 val population:Int)
 

@@ -7,10 +7,12 @@ import android.view.ViewGroup
 import com.example.markiiimark.weatherapp.R
 import com.example.markiiimark.weatherapp.domain.model.Forecast
 import com.example.markiiimark.weatherapp.domain.model.ForecastList
-import com.example.markiiimark.weatherapp.ui.utils.ctx
+import com.example.markiiimark.weatherapp.extensions.ctx
 import com.squareup.picasso.Picasso
 
 import kotlinx.android.synthetic.main.item_forecast.view.*
+import java.text.DateFormat
+import java.util.*
 
 class ForecastListAdapter(private val weekForecast: ForecastList,
                           private val itemClick: ((Forecast) -> Unit)):
@@ -36,12 +38,17 @@ class ForecastListAdapter(private val weekForecast: ForecastList,
         fun bindForecast(forecast: Forecast) {
             with(forecast) {
                 Picasso.with(itemView.ctx).load(iconUrl).into(itemView.icon)
-                itemView.dateTextView.text = date
+                itemView.dateTextView.text = convertDate(date)
                 itemView.descriptionTextView.text = description
                 itemView.maxTemperatureTextView.text = "${high.toString()}"
                 itemView.minTemperatureTextView.text = "${low.toString()}"
                 itemView.setOnClickListener{  itemClick(this)  }
             }
+        }
+
+        private fun convertDate(date: Long): String {
+            val df = DateFormat.getDateInstance(DateFormat.MEDIUM, Locale.getDefault())
+            return df.format(date)
         }
 
     }

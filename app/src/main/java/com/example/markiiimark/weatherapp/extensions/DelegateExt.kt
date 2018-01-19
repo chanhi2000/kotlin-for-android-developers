@@ -1,4 +1,4 @@
-package com.example.markiiimark.weatherapp.ui.utils
+package com.example.markiiimark.weatherapp.extensions
 
 import kotlin.properties.ReadWriteProperty
 import kotlin.reflect.KProperty

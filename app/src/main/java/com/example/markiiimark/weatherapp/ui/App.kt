@@ -1,7 +1,7 @@
 package com.example.markiiimark.weatherapp.ui
 
 import android.app.Application
-import com.example.markiiimark.weatherapp.ui.utils.DelegateExt
+import com.example.markiiimark.weatherapp.extensions.DelegateExt
 
 class App: Application() {
     companion object {
