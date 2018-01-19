@@ -3,16 +3,13 @@ package com.example.markiiimark.weatherapp.ui.acitivity
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.support.v7.widget.LinearLayoutManager
-import android.support.v7.widget.RecyclerView
 import com.example.markiiimark.weatherapp.R
 import com.example.markiiimark.weatherapp.domain.command.RequestForecastCommand
-import com.example.markiiimark.weatherapp.domain.model.Forecast
 import com.example.markiiimark.weatherapp.ui.adapter.ForecastListAdapter
-import kotlinx.android.synthetic.main.activity_main.*
 import org.jetbrains.anko.doAsync
-import org.jetbrains.anko.find
 import org.jetbrains.anko.toast
 import org.jetbrains.anko.uiThread
+import kotlinx.android.synthetic.main.activity_main.forecastList
 
 class MainActivity : AppCompatActivity() {
     private val items = listOf(
@@ -25,12 +22,12 @@ class MainActivity : AppCompatActivity() {
             "Sun 6/29 - Sunny - 20/7"
 
     )
-    private val forecaseList by lazy { find(R.id.forecastList) as RecyclerView }
+//    private val forecaseList by lazy { find(R.id.forecastList) as RecyclerView }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-        forecaseList.layoutManager = LinearLayoutManager(this)
+        forecastList.layoutManager = LinearLayoutManager(this)
 
         doAsync {
             val result = RequestForecastCommand("94043").execute()

@@ -7,7 +7,6 @@ data class ForecastList(val city:String,
         get() = dailyForecast.size
 
     operator fun get(position: Int) = dailyForecast[position]
-
 }
 
 data class Forecast(val date:String,

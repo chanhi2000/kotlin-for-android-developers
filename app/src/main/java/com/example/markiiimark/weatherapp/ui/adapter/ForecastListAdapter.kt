@@ -4,14 +4,13 @@ import android.support.v7.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.ImageView
-import android.widget.TextView
 import com.example.markiiimark.weatherapp.R
 import com.example.markiiimark.weatherapp.domain.model.Forecast
 import com.example.markiiimark.weatherapp.domain.model.ForecastList
 import com.example.markiiimark.weatherapp.ui.utils.ctx
 import com.squareup.picasso.Picasso
-import org.jetbrains.anko.find
+
+import kotlinx.android.synthetic.main.item_forecast.view.*
 
 class ForecastListAdapter(private val weekForecast: ForecastList,
                           private val itemClick: ((Forecast) -> Unit)):
@@ -33,21 +32,14 @@ class ForecastListAdapter(private val weekForecast: ForecastList,
     class ViewHolder(val view: View,
                      private val itemClick: ((Forecast) -> Unit)):
             RecyclerView.ViewHolder(view) {
-        private val iconView by lazy {  view.find(R.id.icon) as ImageView  }
-        private val dateView by lazy {  view.find(R.id.dateTextView) as TextView  }
-        private val descriptionView by lazy {  view.find(R.id.descriptionTextView) as TextView  }
-        private val maxTemperatureView by lazy {  view.find(R.id.maxTemperatureTextView) as TextView  }
-        private val minTemperatureView by lazy {  view.find(R.id.minTemperatureTextView) as TextView  }
 
         fun bindForecast(forecast: Forecast) {
             with(forecast) {
-                Picasso.with(itemView.ctx)
-                        .load(iconUrl)
-                        .into(iconView)
-                dateView.text = date
-                descriptionView.text = description
-                maxTemperatureView.text = "${high.toString()}"
-                minTemperatureView.text = "${low.toString()}"
+                Picasso.with(itemView.ctx).load(iconUrl).into(itemView.icon)
+                itemView.dateTextView.text = date
+                itemView.descriptionTextView.text = description
+                itemView.maxTemperatureTextView.text = "${high.toString()}"
+                itemView.minTemperatureTextView.text = "${low.toString()}"
                 itemView.setOnClickListener{  itemClick(this)  }
             }
         }
