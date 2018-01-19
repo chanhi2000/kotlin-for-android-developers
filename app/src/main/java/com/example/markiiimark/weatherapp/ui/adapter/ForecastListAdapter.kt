@@ -11,27 +11,27 @@ import com.example.markiiimark.weatherapp.domain.model.Forecast
 import com.example.markiiimark.weatherapp.domain.model.ForecastList
 import com.example.markiiimark.weatherapp.ui.utils.ctx
 import com.squareup.picasso.Picasso
-import kotlinx.android.synthetic.main.item_forecast.view.*
 import org.jetbrains.anko.find
-import org.w3c.dom.Text
 
 class ForecastListAdapter(private val weekForecast: ForecastList,
-                          private val itemClick: ForecastListAdapter.OnItemClickListener):
+                          private val itemClick: ((Forecast) -> Unit)):
         RecyclerView.Adapter<ForecastListAdapter.ViewHolder>(){
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
+    override fun onCreateViewHolder(parent: ViewGroup,
+                                    viewType: Int): ViewHolder {
         val retView = LayoutInflater.from(parent.ctx).inflate(R.layout.item_forecast, parent, false)
         return ViewHolder(retView, itemClick)
     }
 
-    override fun onBindViewHolder(holder: ViewHolder, position: Int) {
+    override fun onBindViewHolder(holder: ViewHolder,
+                                  position: Int) {
         holder.bindForecast(weekForecast[position])
     }
 
     override fun getItemCount(): Int = weekForecast.dailyForecast.size
 
     class ViewHolder(val view: View,
-                     private val itemClick: OnItemClickListener):
+                     private val itemClick: ((Forecast) -> Unit)):
             RecyclerView.ViewHolder(view) {
         private val iconView by lazy {  view.find(R.id.icon) as ImageView  }
         private val dateView by lazy {  view.find(R.id.dateTextView) as TextView  }
@@ -52,9 +52,5 @@ class ForecastListAdapter(private val weekForecast: ForecastList,
             }
         }
 
-    }
-
-    interface OnItemClickListener {
-        operator fun invoke(forecast: Forecast)
     }
 }
