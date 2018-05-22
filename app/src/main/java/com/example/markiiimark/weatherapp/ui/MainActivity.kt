@@ -39,7 +39,5 @@ class MainActivity : AppCompatActivity() {
             Request(url).run()
             uiThread { longToast("Request performed") }
         }
-
-
     }
 }
