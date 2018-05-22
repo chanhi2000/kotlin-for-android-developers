@@ -1,22 +1,20 @@
 ext {
     versions = [
-            android             : '2.3.0',
+            android             : '3.1.0',
             compileSdk          : 26,
             buildTools          : '27.0.3',
             minSdk              : 16,
             targetSdk           : 26,
 
             // Anddroid
-            support             : "26.1.0",
+            support             : "27.1.0",
             constraintLayout    : '1.0.2',
 
             // Kotlin
-            kotlin              : '1.2.0',
+            kotlin              : '1.2.30',
+
             // Test
             espresso            : '2.2.2',
             junit               : '4.12'
-
-
-
     ]
 }
